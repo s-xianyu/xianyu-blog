@@ -1,0 +1,399 @@
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  background: #fff;
+  font-family: '-apple-system', 'Open Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  color: #333;
+}
+::selection,
+::-moz-selection,
+::-webkit-selection {
+  background: #b2cce6;
+  color: color-background;
+}
+a {
+  text-decoration: none;
+}
+#header {
+  height: auto;
+  border-bottom: none;
+}
+#header .subtitle {
+  color: #999;
+  font-style: italic;
+}
+#header #main-nav .aboutme {
+  line-height: 1.2em;
+  color: color-gray02;
+  margin-top: 10px;
+}
+#header #main-nav ul li {
+  font-size: 15px;
+}
+#header #sub-nav {
+  float: none;
+  position: relative;
+}
+#header #sub-nav .search {
+  float: none;
+}
+#header #sub-nav .search .alignright {
+  float: none;
+}
+#header h1 {
+  float: none;
+}
+#header #main-nav {
+  float: none;
+  margin-left: 0px;
+}
+#header #main-nav ul li {
+  margin-left: 0px;
+  display: block;
+}
+#header #main-nav ul li a {
+  padding: 0px 0px;
+  text-shadow: 1px 0 #000;
+}
+.container {
+  position: relative;
+  min-height: 100%;
+}
+.container .credit-box {
+  color: #aaa;
+  font-size: 0.8em;
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+}
+.container .credit-box a {
+  color: inherit;
+}
+.container .mid-col {
+  position: absolute;
+  right: 0;
+  left: 0;
+  min-height: 100%;
+  margin-left: 250px;
+  background: #fff;
+}
+.container .mid-col #banner {
+  width: 100%;
+}
+.container .mid-col #banner small {
+  margin-right: 70px;
+}
+.container .mid-col footer.inner {
+  text-align: center;
+  margin: 0px 70px 0px 40px;
+  width: auto;
+}
+.container .mid-col .mid-col-container {
+  padding: 0px 70px 0px 40px;
+}
+.container .mid-col .mid-col-container #content {
+  width: 100%;
+}
+.container .mid-col .mid-col-container #content article {
+  border-top: none;
+}
+.container .mid-col .mid-col-container #content article .title {
+  margin-left: 0px;
+}
+.container .mid-col .mid-col-container #content article .entry-content {
+  margin-left: 0px;
+  font-size: 16px;
+  line-height: 1.8;
+  word-wrap: break-word;
+  font-family: Arial, 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, Helvetica, Tahoma, 'Arial sans-serif';
+  -webkit-font-smoothing: antialiased;
+  font-weight: 10;
+}
+.container .mid-col .mid-col-container #content article .entry-content .gist .gist-file .gist-data .line_numbers {
+  line-height: inherit;
+}
+.container .mid-col .mid-col-container #content article .entry-content .gist .gist-file .gist-data pre {
+  line-height: inherit;
+}
+.container .mid-col .mid-col-container #content article .entry-content h2 {
+  border-bottom: none;
+}
+.container .mid-col .mid-col-container #content article .entry-content h2::before {
+  border-bottom: none;
+}
+.container .mid-col .mid-col-container #content article .entry-content blockquote {
+  border-left: 5px solid greyshade;
+  background: #fcfcfc;
+}
+.container .mid-col .mid-col-container #content article .entry-content table {
+  min-width: 100%;
+  line-height: 1.2em;
+}
+.container .mid-col .mid-col-container #content article .meta {
+  position: static;
+  color: #555;
+  text-align: right;
+  width: auto;
+}
+.container .mid-col .mid-col-container #content article .meta.meta-art {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  font-size: 14px;
+  line-height: inherit;
+  margin-top: 0;
+}
+.container .mid-col .mid-col-container #content article .meta .date::before {
+  color: #555;
+  position: relative;
+}
+.container .mid-col .mid-col-container #content article .meta .tags::before {
+  color: #999;
+  position: relative;
+  margin-right: 10px;
+}
+.container .mid-col .mid-col-container #content article .meta .print::before {
+  color: #555;
+  position: relative;
+  margin-right: 10px;
+}
+.container .mid-col .mid-col-container #content article .meta-index-post-entry {
+  height: inherit;
+  float: none;
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  top: auto;
+}
+.container .mid-col .mid-col-container #content article .meta-index-post-entry .date {
+  margin-right: 0;
+}
+.container .mid-col .mid-col-container #content article h1.title {
+  position: relative;
+}
+.container .mid-col .mid-col-container #content article h1.title a {
+  color: #333;
+}
+.container .mid-col .mid-col-container #content article h1.title a:hover {
+  color: greyshade;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.container .mid-col footer {
+  width: 100%;
+}
+.container .left-col {
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+.container .left-col .intrude-less {
+  width: 100%;
+}
+.container .left-col #header {
+  width: 100%;
+  box-sizing: border-box;
+}
+.container .left-col #header #main-nav {
+  margin-top: 10px;
+}
+.container .left-col #header #main-nav li {
+  text-align: center;
+}
+.container .left-col #header .profilepic {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.container .left-col #header .profilepic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.container .left-col #header .author-name {
+  text-align: center;
+  font-size: 2em;
+}
+.container .left-col #header .author-name a {
+  color: #fff;
+  text-shadow: 0 1px #333;
+}
+.container .left-col #header .author-name a:hover {
+  color: greyshade;
+}
+.container .left-col #header #sub-nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.container .left-col #header #sub-nav .search::before {
+  left: 10px;
+}
+.archives .title {
+  font-size: 1.2em;
+}
+.archives article .meta {
+  line-height: 1.5em;
+  margin-top: 0;
+}
+.archives article .meta span::before {
+  padding-right: 0;
+}
+a {
+  color: greyshade;
+}
+a:hover {
+  color: greyshade;
+}
+@media screen and (max-width: 1040px) {
+  body {
+    margin: 0 0;
+  }
+}
+@media screen and (max-width: 640px) {
+  body .container .left-col {
+    position: relative;
+    width: 100%;
+  }
+  body .container .left-col #header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  body .container .left-col .profilepic {
+    width: 80px !important;
+    height: 80px !important;
+    display: none;
+  }
+  body .container .left-col .aboutme {
+    display: none;
+  }
+  body .container .mid-col {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+  body .container .mid-col .mid-col-container {
+    padding: 0 12px;
+  }
+  body .container .mid-col .mid-col-container #content article .meta {
+    float: none;
+  }
+  body .container .mid-col .mid-col-container .post-toc {
+    float: none;
+    margin: 0;
+    max-width: 100%;
+  }
+}
+.post-toc {
+  float: right;
+  min-width: 120px;
+  max-width: 260px;
+  padding: 8px;
+  margin: 0 0 15px 20px;
+  border: 1px solid #e2e2e2;
+  font-size: 14px;
+  background-color: #fff;
+}
+.post-toc .toc-title {
+  font-weight: bold;
+  border-bottom: 1px solid #e2e2e2;
+}
+.post-toc >ol,
+.post-toc >ul {
+  margin-left: 0px !important;
+}
+.post-toc ol,
+.post-toc ul {
+  list-style: none;
+  margin-top: 5px !important;
+}
+.post-comments {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.post-comments .post-comments-title {
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 35px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+.post-comments .vpower.txt-right {
+  display: none;
+}
+.post-comments .v[data-class=v] .vcards .vcard .vh {
+  border-bottom: 1px solid #f1f1f1;
+}
+.post-comments .v[data-class=v] .vcards .vcard .vquote {
+  border-left: 0;
+}
+.post-comments .vempty {
+  display: none !important;
+}
+#Jcomment:empty {
+  min-height: 50px;
+  text-align: center;
+}
+#Jcomment:empty:before {
+  content: '评论组件正在加载中...';
+}
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 80%;
+  margin: 0 2px;
+  padding: 4px 5px;
+  background-color: #eee;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.wrapper .info {
+  color: #676767;
+  font-size: 13px;
+  padding: 15px 0;
+}
+.wrapper input {
+  -webkit-appearance: none;
+  border: 1px solid #bbb;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  height: 40px;
+  outline: 0;
+  padding: 4px 6px;
+  width: 100%;
+}
+#JresList .search-keyword {
+  color: #c00;
+  font-weight: normal;
+}
+#JresList ul {
+  padding: 0;
+  margin: 0;
+}
+#JresList .item {
+  list-style: none;
+  padding: 10px 0 20px;
+  border-top: 1px solid #ddd;
+}
+#JresList .item .search-result-link {
+  font-size: 95%;
+  color: #333;
+}
+#JresList .item .search-result {
+  margin-top: 10px;
+}
