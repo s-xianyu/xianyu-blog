@@ -1,0 +1,36 @@
+<!-- 归档页 s -->
+<article>
+  <h1 class="title">已发表文章 <%=site.posts.length%> 篇</h1>
+  <div class="entry-content">
+    <%
+      let posts = [], _yearArr = [] ,yearArr;
+      site.posts.each(function(item){
+        posts.push(item)
+        _yearArr.push(moment(item.date).format('YYYY'))
+      });
+
+      posts = posts.sort((prev,next)=>{
+        return next.date - prev.date
+      })
+
+      yearArr = [...new Set(_yearArr)]
+      yearArr = yearArr.sort((prev,next)=>{
+        return next - prev
+      })
+    %>
+
+    <% for( let i = 0; i < yearArr.length; i++ ) { %>
+      <h3><%=yearArr[i]%></h3>
+      <ul>
+        <% for( let index = 0; index < posts.length; index++ ) { %>
+          <% if (moment(posts[index].date).format('YYYY') == yearArr[i]) { %>
+            <li>
+              <a href="<%- config.root %><%- posts[index].path %>"><%= posts[index].title %></a>
+              (<%= moment(posts[index].date).format('MM-DD') %>)
+            </li>
+          <% } %>
+        <% } %>
+      </ul>
+    <% } %>
+  </div>
+</article>

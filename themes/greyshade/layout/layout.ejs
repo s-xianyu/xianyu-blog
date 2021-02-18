@@ -1,0 +1,133 @@
+<%- partial('_partial/head') %>
+<body>
+  <div class="container">
+    <div class="left-col" style="background-image:url('<%= theme.sidePic %>')">
+      <div class="intrude-less">
+        <header id="header" class="inner">
+          <a href="<%- config.root %>">
+            <div class="profilepic"><img src='<%= theme.avatar %>'></div>
+          </a>
+          <div class="author-name"><a href="<%- config.root %>"><%= config.author %></a></div>
+          <% if(config.description) { %><p class="aboutme"><%= config.description %></p><% } %>
+          <nav id="main-nav">
+            <ul class="main">
+              <% for (var i in theme.menu.page) { %>
+              <li>
+                <% if (theme.menu.page[i]) { %>
+                  <a href="<%- config.root %><%- theme.menu.page[i] %>"><%= i %></a>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </nav>
+          <nav id="sub-nav">
+            <div class="social">
+              <% if(theme.social.twitter) { %>
+              <a class="twitter" href="https://twitter.com/<%- theme.twitter.username %>" title="Twitter">Twitter</a>
+              <% } %>
+              <% if(theme.social.weibo) { %>
+              <a class="weibo" href="https://weibo.com/<%- theme.weibo.username %>" title="微博">微博</a>
+              <% } %>
+              <% if(theme.social.github) { %>
+              <a class="github" href="https://github.com/<%- theme.github.username %>" title="Github">Github</a>
+              <% } %>
+              <% if(theme.social.yuque) { %>
+              <a class="yuque" href="https://yuque.com/<%- theme.yuque.username %>" title="语雀">语雀</a>
+              <% } %>
+
+              <% if(theme.social.rss) { %>
+              <a class="rss" href="<%- config.root%>atom.xml" title="RSS">RSS</a>
+              <% } %>
+            </div>
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div class="mid-col">
+      <div class="mid-col-container">
+        <div id="content" class="inner">
+          <%- body  %>
+        </div>
+        <% let useCmt = (typeof page.comments == 'boolean' && !page.comments) ? false :true %>
+        <% if (!page.__index && theme.valine.appId && theme.valine.appKey && useCmt ) { %>
+          <div class="post-comments" id="Jcmt">
+            <h1 class="post-comments-title">访客评论</h1>
+            <div id="Jcomment"></div>
+          </div>
+        <% } %>
+      </div>
+      <footer id="footer" class="inner">
+        © <%= (new Date).getFullYear();  %> - <%- config.author %> -
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        <p>Powered by <a href="https://hexo.io/">Hexo</a> & <a href="https://github.com/thinkerchan/hexo-theme-greyshade">GreyShade</a></p>
+      </footer>
+    </div>
+  </div>
+  <% if (!page.__index && theme.valine.appId && theme.valine.appKey && useCmt ) { %>
+  <script>
+    let mod ={
+      timePrefix:'t-',
+      expire:1000*60*60,
+      load:function(libName,libUrl,cb){
+        let aval = (new Date).getTime() - localStorage.getItem(this.timePrefix+libName) < this.expire;
+        let libStr = localStorage.getItem(libName)
+        if (aval && libStr) {
+          this.parseAndInsert(libStr)
+          cb && cb(libStr);
+        }else{
+          this.ajax(libUrl,(str)=>{
+            localStorage.setItem(libName, str)
+            localStorage.setItem(this.timePrefix+libName, (new Date).getTime())
+            this.parseAndInsert(str)
+            cb && cb(str);
+          })
+        }
+      },
+      parseAndInsert(rawStr) {
+        let script = document.createElement('script')
+        script.innerHTML = rawStr
+        document.body.appendChild(script)
+      },
+      ajax:function(url,cb){
+        let xhr = new XMLHttpRequest;
+        xhr.open('get', url, true)
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            cb && cb(xhr.responseText)
+          }else{
+            // console.log(xhr.readyState,xhr.status);
+          }
+        }
+      },
+      genCmt(){
+        window.Valine && new Valine({
+          el: '#Jcomment',
+          appId: '<%= theme.valine.appId %>',
+          appKey: '<%= theme.valine.appKey %>',
+          notify: true,
+          verify: false,
+          avatar: 'mm',
+          pageSize: '10',
+          placeholder: 'Valine+Leancloud提供评论'
+        })
+      }
+    }
+
+    mod.load('lib-av', 'https://cdn.jsdelivr.net/npm/leancloud-storage@3.0.1/dist/av-min.js', () => {
+      mod.load('lib-cmt', 'https://unpkg.com/valine@1.4.14/dist/Valine.min.js',()=>{
+        let t = setTimeout(() => {
+          mod.genCmt()
+          clearTimeout(t)
+          t = null;
+        }, 100);
+      })
+    })
+  </script>
+  <% } %>
+  <script async defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <% if (theme.umeng) { %>
+  <script async defer src="https://s5.cnzz.com/z_stat.php?id=<%= theme.umeng %>&web_id=<%= theme.umeng %>"></script>
+  <% } %>
+</body>
+</html>
