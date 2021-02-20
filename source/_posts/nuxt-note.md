@@ -2,6 +2,8 @@
 title: nuxt.js-相关配置信息
 date: 2018-10-19 10:59:38
 tags:
+    - 前端
+    - nuxtJs
 ---
 
 # nuxt.js
@@ -23,6 +25,8 @@ tags:
 }
 </style>
 ```
+
+<!--more-->
 
 如果是全局使用的话，需要在nuxt-config.jsli配置全局css,如下：<br />less和其他依赖一样
 ```javascript
