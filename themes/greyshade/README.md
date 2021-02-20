@@ -28,8 +28,8 @@ theme: greyshade
         关于: life
         搜索: search
 
-    sidePic: https://tva1.sinaimg.cn/large/007S8ZIlgy1ggdmi6yapmj30dw0zk0wm.jpg // 主题图
-    avatar: https://tva1.sinaimg.cn/large/007S8ZIlgy1ggdmr1k3k0j305k05k74j.jpg // 头像
+    sidePic: https://cdn.nlark.com/yuque/0/2021/jpeg/132386/1613699319637-ff7c80d7-0e96-4c18-859f-9632a905c57b.jpeg?x-oss-process=image%2Fresize%2Cw_746 // 主题图
+    avatar: https://cdn.nlark.com/yuque/0/2021/jpeg/132386/1613699319637-ff7c80d7-0e96-4c18-859f-9632a905c57b.jpeg?x-oss-process=image%2Fresize%2Cw_746 // 头像
 
     excerpt_link: 继续阅读
     excerpt: 200 // 提取字数

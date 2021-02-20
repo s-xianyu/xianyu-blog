@@ -5,12 +5,12 @@ menu:
   page:
     归档: archives
     专题: categories
-    友链: friendlinks
+#    友链: friendlinks
     关于: life
     搜索: search
 
-sidePic: https://tva1.sinaimg.cn/large/007S8ZIlgy1ggdmi6yapmj30dw0zk0wm.jpg
-avatar: https://tva1.sinaimg.cn/large/007S8ZIlgy1ggdmr1k3k0j305k05k74j.jpg
+sidePic: https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/sidePic2.jpg
+avatar: https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/avatar2.jpg
 
 excerpt_link: 继续阅读
 excerpt: 200
@@ -22,17 +22,17 @@ social:
   yuque: true
   rss: true
 
-twitter:
-  username:
+#twitter:
+#  username:
 
 github:
-  username:
+  username: s-xianyu
 
 weibo:
-  username:
+  username: 2391745125/profile?rightmod=1&wvr=6&mod=personinfo
 
 yuque:
-  username:
+  username: s-xianyu
 
 # https://www.leancloud.cn/
 valine:
