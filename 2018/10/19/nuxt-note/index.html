@@ -16,8 +16,10 @@
 <meta property="og:description" content="nuxt.js 一、sass配置1.安装依赖文件：npm install css-loader style-loader node-sass sass-loader –save 在你需要使用的页面添加@import “scss地址”； 见下 12345678910&lt;style lang&#x3D;&quot;scss&quot;&gt; &#x2F;&#x2F;这里的lang&#x3D;&quot;scss&quot; 而不是 s">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-10-19T10:59:38.000Z">
-<meta property="article:modified_time" content="2021-02-20T09:59:11.072Z">
+<meta property="article:modified_time" content="2021-02-20T10:24:30.895Z">
 <meta property="article:author" content="xianyu">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="nuxtJs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼呀-博客" type="application/atom+xml">
@@ -178,6 +180,8 @@
 <h3 id="一、sass配置"><a href="#一、sass配置" class="headerlink" title="一、sass配置"></a>一、sass配置</h3><p>1.安装依赖文件：<br />npm install css-loader style-loader node-sass sass-loader –save</p>
 <p>在你需要使用的页面添加@import “scss地址”； 见下</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot;&gt; //这里的lang=&quot;scss&quot; 而不是 sass</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../assets/style/mixin.scss&quot;</span>; //全局scss</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> wh(<span class="number">10rem</span>,<span class="number">10rem</span>); //这里为自定义mixin</span><br><span class="line">  <span class="keyword">@include</span> flexCenter; //这里为自定义mixin</span><br><span class="line">  <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">1rem</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>如果是全局使用的话，需要在nuxt-config.jsli配置全局css,如下：<br />less和其他依赖一样</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    styleResources: &#123;</span><br><span class="line">      scss: <span class="string">&#x27;./assets/common/common.scss&#x27;</span>,<span class="comment">// 如 less: &#x27;../../common&#x27;</span></span><br><span class="line">      <span class="comment">// sass: ...,</span></span><br><span class="line">      <span class="comment">// scss: ...</span></span><br><span class="line">      options: &#123;</span><br><span class="line">        <span class="comment">// See https://github.com/yenshih/style-resources-loader#options</span></span><br><span class="line">        <span class="comment">// Except `patterns` property</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p><a name="i4cuym"></a></p>
@@ -231,6 +235,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nuxtJs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -421,6 +440,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nuxtJs</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

@@ -178,26 +178,9 @@
 <h3 id="一、sass配置"><a href="#一、sass配置" class="headerlink" title="一、sass配置"></a>一、sass配置</h3><p>1.安装依赖文件：<br />npm install css-loader style-loader node-sass sass-loader –save</p>
 <p>在你需要使用的页面添加@import “scss地址”； 见下</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;scss&quot;&gt; //这里的lang=&quot;scss&quot; 而不是 sass</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../assets/style/mixin.scss&quot;</span>; //全局scss</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> wh(<span class="number">10rem</span>,<span class="number">10rem</span>); //这里为自定义mixin</span><br><span class="line">  <span class="keyword">@include</span> flexCenter; //这里为自定义mixin</span><br><span class="line">  <span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">1rem</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>如果是全局使用的话，需要在nuxt-config.jsli配置全局css,如下：<br />less和其他依赖一样</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">build: &#123;</span><br><span class="line">    styleResources: &#123;</span><br><span class="line">      scss: <span class="string">&#x27;./assets/common/common.scss&#x27;</span>,<span class="comment">// 如 less: &#x27;../../common&#x27;</span></span><br><span class="line">      <span class="comment">// sass: ...,</span></span><br><span class="line">      <span class="comment">// scss: ...</span></span><br><span class="line">      options: &#123;</span><br><span class="line">        <span class="comment">// See https://github.com/yenshih/style-resources-loader#options</span></span><br><span class="line">        <span class="comment">// Except `patterns` property</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p><a name="i4cuym"></a></p>
-<h3 id="二、nuxt跨域访问"><a href="#二、nuxt跨域访问" class="headerlink" title="二、nuxt跨域访问"></a>二、nuxt跨域访问</h3><p>1.安装@nuxtjs/axios 和 @nuxtjs/proxy 官方模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @nuxtjs/axios @nuxtjs/proxy --save</span><br></pre></td></tr></table></figure>
-<p>2.在plugins建立全局js名为axios 内容为：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> options = &#123;&#125;</span><br><span class="line"><span class="keyword">if</span> (process.server) &#123;  <span class="comment">//其中2222为项目端口号</span></span><br><span class="line">  options.baseURL = <span class="string">`http://<span class="subst">$&#123;process.env.HOST || <span class="string">&#x27;localhost&#x27;</span>&#125;</span>:<span class="subst">$&#123;process.env.PORT || <span class="number">2222</span>&#125;</span>/api`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> axios.create(options)</span><br></pre></td></tr></table></figure>
-<p>这样每次通过axios访问api的时候都会自动在前面加上api</p>
-<p>3.在nuxt.config.js里配置axios</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">modules: [ <span class="comment">//配置所需模块</span></span><br><span class="line">      <span class="string">&#x27;@nuxtjs/axios&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;@nuxtjs/proxy&#x27;</span></span><br><span class="line">  ],</span><br><span class="line">proxy: [ <span class="comment">//设置跨域代理为 /api 代替</span></span><br><span class="line">      [</span><br><span class="line">        <span class="string">&#x27;/api&#x27;</span>, </span><br><span class="line">        &#123; </span><br><span class="line">          target: <span class="string">&#x27;https://www.baidu.com:2222&#x27;</span>, <span class="comment">// 需要跨域的地址</span></span><br><span class="line">          pathRewrite: &#123; <span class="string">&#x27;^/api&#x27;</span> : <span class="string">&#x27;/&#x27;</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
-<p>4.完成后可以直接用了 <del>0</del></p>
-<p><a name="lqu8wt"></a></p>
-<h3 id="三、全局js-配置"><a href="#三、全局js-配置" class="headerlink" title="三、全局js 配置"></a>三、全局js 配置</h3><p>插件配置<br />1.首先下载插件 npm install element-ui –save<br />2.在plugins 建立element-ui文件夹用来引入模块，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Element <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/element-ui.common&#x27;</span> <span class="comment">//引入element-ui库</span></span><br><span class="line"><span class="keyword">import</span> locale <span class="keyword">from</span> <span class="string">&#x27;element-ui/lib/locale/lang/en&#x27;</span> <span class="comment">//引入element-ul所需js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123; <span class="comment">//暴露全局</span></span><br><span class="line">  Vue.use(Element, &#123; locale &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.配置到这里，还差一步，在nuxt.config.js里配置如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    &#123;<span class="attr">src</span>:<span class="string">&#x27;~plugins/element-ui&#x27;</span>,<span class="attr">ssr</span>:<span class="literal">true</span>&#125;</span><br><span class="line">  ],</span><br><span class="line">css: [</span><br><span class="line">    <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span> <span class="comment">//所需css</span></span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
-<p>自定义js配置和插件配置一样，但是要设置ssr为false,意为只在客户端运行的插件。</p>
-<h3 id="四、-去除nuxt项目下的vuex变量"><a href="#四、-去除nuxt项目下的vuex变量" class="headerlink" title="四、 去除nuxt项目下的vuex变量"></a>四、 去除nuxt项目下的vuex变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除掉nuxt 项目下html页面下的 window.__NUXT__=</span></span><br><span class="line"><span class="comment">// 进入可以看到一个独立的vue-renderer.js;</span></span><br><span class="line"><span class="comment">// 编辑 vue-renderer.js  大概3835行的样子。注释掉 2个代码块分别如下：</span></span><br><span class="line"><span class="number">1.</span> APP += <span class="string">`&lt;script&gt;<span class="subst">$&#123;serializedSession&#125;</span>&lt;/script&gt;</span></span><br><span class="line"><span class="string">2. hash.update(serializedSession);// cspScriptSrcHashes.push(`</span><span class="string">&#x27;$&#123;csp.hashAlgorithm&#125;-$&#123;hash.digest(&#x27;</span>base64<span class="string">&#x27;)&#125;&#x27;</span><span class="string">`);</span></span><br></pre></td></tr></table></figure>
-<p>   然后打包编辑就可以了。</p>
-
+        
+          <a class="article-more-a" href="/2018/10/19/nuxt-note/#more">more >></a>
+        
       
 
       
@@ -205,6 +188,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nuxtJs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -261,84 +259,9 @@
       
         <ol>
 <li>1px像素问题<br>在手机端，设置1px像素时，有时候看起来比一个像素粗<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span><span class="selector-pseudo">::after</span>&#123; </span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>; </span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">1px</span>;</span><br><span class="line">     <span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">     <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>; </span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li>旋转屏幕时，字体大小调整的问题<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">form</span>,<span class="selector-tag">fieldset</span>,<span class="selector-tag">p</span>,<span class="selector-tag">div</span>,<span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>&#123; </span><br><span class="line">    -webkit-text-size-adjust:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="3">
-<li>上下拉动滚动条时卡顿、滚动很慢<br>Android3+和iOSi5+支持CSS3的新属性为<strong>overflow-scrolling</strong><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    -webkit-<span class="attribute">overflow</span>-scrolling:touch; </span><br><span class="line">    <span class="attribute">overflow</span>-scrolling:touch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>长时间按住页面出现闪退情况<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element&#123;-webkit-touch-callout:none;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="5">
-<li>去掉iphone、ipad 输入框内阴影<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element&#123; -webkit-appearance:none;&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="6">
-<li>ios和android下触摸元素时出现半透明灰色遮罩<br>设置alpha值为0就可以去除本透明灰色遮罩，备注：<strong>transparent</strong>的属性值在android下无效。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element&#123; -webkit-tap-highlight-<span class="attribute">color</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>);&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="7">
-<li>active兼容处理 即 伪类：active失效<br>方法一： body 添加 <strong>ontouchstart</strong><br>方法二：js给document绑定touchstart或touchend事件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListentener(<span class="string">&#x27;touchstart&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Android手机圆角失效BUG<br><strong>background-clip:padding-box;</strong></li>
-</ol>
-<ol start="9">
-<li>移动端clcik延时问题<br>不用click事件，改用自定义事件** tap** 或者引入 **fastclick库 **解决<br>建议：移动端尽量使用touch代替click事件</li>
-</ol>
-<ol start="10">
-<li>响应式图片<br>在移动端中，图片的处理应该是很谨慎的，假设有一张图片本身的尺寸是X宽，设置和包裹它的div一样宽，如果是div宽度小于图片宽度没有问题，但是如果div宽度大于图片的宽度，图片被拉伸失真<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123; <span class="attribute">max-width</span>: <span class="number">100%</span>; <span class="attribute">display</span>: block; <span class="attribute">margin</span>: <span class="number">0</span> auto; &#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="11">
-<li>常用mate标签设置<meta name="apple-mobile-web-app-capable" content="yes"> **             **** **设置页面是否已全屏模式运行显示
-<meta name="format-detection"content="telephone=no">**            **设置是否自动识别电话号码，no为不识别** **
-<meta name="viewwport" content="width=device-width initial-scale=1" maximun-scale="1" user-scalable="no">**                                                                                                                         **设置页面视口区域为浏览器可见区域 user-scalable 为no:禁止缩放
-<meta http-equiv="Cache-Control" content="no-cache" />**    **设置缓存每次刷新会使用缓存而不是去服务器发送请求
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>    浏览器兼容模式 
-<meta content="yes" name="apple-mobile-web-app-capable"/>   清楚iPhone 默认工具栏和菜单栏
-
-
-
-</li>
-</ol>
-<ol start="12">
-<li>H5提供的自动拨号功能<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;tel:123456789,1034&quot;</span>&gt;</span>123456789 转 1034<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="13">
-<li>禁止复制，选中文本（PC，H5）<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">element &#123;</span><br><span class="line">    -webkit-user-select:none;</span><br><span class="line">    -moz-user-select:none;</span><br><span class="line">    -khtml-user-select:none;</span><br><span class="line">    user-select:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<p>14.双行文字溢出显示省略号</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">word-break</span>: break-all;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">text-overflow</span>: -o-ellipsis-lastline;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: <span class="number">2</span>;</span><br><span class="line">    line-clamp: <span class="number">2</span>;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br></pre></td></tr></table></figure>
-
-<p>15.背景图模糊</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;parent&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;111.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span>/&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">	 <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">6</span>;</span><br><span class="line">    -webkit-<span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">20px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/06/05/css-note/#more">more >></a>
+        
       
 
       
@@ -346,6 +269,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -471,6 +409,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nuxtJs</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
