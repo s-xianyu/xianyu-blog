@@ -1,6 +1,6 @@
 ---
 title: NVM 安装 之 window
-date: 2021-02-22 16:00:15
+date: 2021-02-22 16:00:16
 tags:
     - 前端
     - nodeJs
