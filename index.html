@@ -469,6 +469,79 @@
 
 
   
+    <article id="post-regular" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/regular/">正则常用表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/regular/" class="archive-article-date">
+  	<time datetime="2019-12-20T19:45:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> regExpConfig = &#123;</span><br><span class="line">  IDcard: <span class="regexp">/^[1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X)$/</span>, <span class="comment">// 身份证</span></span><br><span class="line">  mobile: <span class="regexp">/^1([3|4|5|7|8|])\d&#123;9&#125;$/</span>, <span class="comment">// 手机号码</span></span><br><span class="line">  telephone: <span class="regexp">/^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$/</span>, <span class="comment">// 固定电话</span></span><br><span class="line">  num: <span class="regexp">/^[0-9]*$/</span>, <span class="comment">// 数字</span></span><br><span class="line">  phoneNo: <span class="regexp">/(^1([3|4|5|7|8|])\d&#123;9&#125;$)|(^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$)/</span>, <span class="comment">// 电话或者手机</span></span><br><span class="line">  policeNo: <span class="regexp">/^[0-9A-Za-z]&#123;4,10&#125;$/</span>, <span class="comment">// 账号4-10位数字或字母组成</span></span><br><span class="line">  pwd: <span class="regexp">/^[0-9A-Za-z]&#123;6,16&#125;$/</span>, <span class="comment">// 密码由6-16位数字或者字母组成</span></span><br><span class="line">  isNumAlpha: <span class="regexp">/^[0-9A-Za-z]*$/</span>, <span class="comment">// 字母或数字</span></span><br><span class="line">  isAlpha: <span class="regexp">/^[a-zA-Z]*$/</span>, <span class="comment">// 是否字母</span></span><br><span class="line">  isNumAlphaCn: <span class="regexp">/^[0-9a-zA-Z\u4E00-\uFA29]*$/</span>, <span class="comment">// 是否数字或字母或汉字</span></span><br><span class="line">  isPostCode: <span class="regexp">/^[\d-]*$/i</span>, <span class="comment">// 是否邮编</span></span><br><span class="line">  isNumAlphaUline: <span class="regexp">/^[0-9a-zA-Z_]*$/</span>, <span class="comment">// 是否数字、字母或下划线</span></span><br><span class="line">  isNumAndThanZero: <span class="regexp">/^([1-9]\d*(\.\d+)?|0)$/</span>, <span class="comment">// 是否为整数且大于0/^[1-9]\d*(\.\d+)?$/</span></span><br><span class="line">  isNormalEncode: <span class="regexp">/^(\w||[\u4e00-\u9fa5])&#123;0,&#125;$/</span>, <span class="comment">// 是否为非特殊字符（包括数字字母下划线中文）</span></span><br><span class="line">  isTableName: <span class="regexp">/^[a-zA-Z][A-Za-z0-9#$_-]&#123;0,29&#125;$/</span>, <span class="comment">// 表名</span></span><br><span class="line">  isInt: <span class="regexp">/^-?\d+$/</span>, <span class="comment">// 整数</span></span><br><span class="line">  isTableOtherName: <span class="regexp">/^[\u4e00-\u9fa5]&#123;0,20&#125;$/</span>, <span class="comment">// 别名</span></span><br><span class="line">  <span class="comment">// isText_30: /^(\W|\w&#123;1,2&#125;)&#123;0,15&#125;$/, // 正则</span></span><br><span class="line">  <span class="comment">// isText_20: /^(\W|\w&#123;1,2&#125;)&#123;0,10&#125;$/, // 正则</span></span><br><span class="line">  isText_30: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,30&#125;$/</span>, <span class="comment">// 匹配30个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_50: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,50&#125;$/</span>, <span class="comment">// 匹配50个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_20: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,20&#125;$/</span>, <span class="comment">// 匹配20个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_100: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,100&#125;$/</span>, <span class="comment">// 匹配100个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_250: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,250&#125;$/</span>, <span class="comment">// 匹配250个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isNotChina: <span class="regexp">/^[^\u4e00-\u9fa5]&#123;0,&#125;$/</span>, <span class="comment">// 不为中文  IDcard: /^[1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X)$/, // 身份证</span></span><br><span class="line">  IDcardAndAdmin: <span class="regexp">/^(([1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X))|(admin))$/</span>, <span class="comment">// 身份证或者是admin账号</span></span><br><span class="line">  IDcardTrim: <span class="regexp">/^\s*(([1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;)|([1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X))|(admin))\s*$/</span>, <span class="comment">// 身份证</span></span><br><span class="line">  num1: <span class="regexp">/^[1-9]*$/</span>, <span class="comment">// 数字</span></span><br><span class="line">  companyNO: <span class="regexp">/^qqb_[0-9a-zA-Z_]&#123;1,&#125;$/</span>, <span class="comment">// 公司人员账号</span></span><br><span class="line">  imgType: <span class="regexp">/image\/(png|jpg|jpeg|gif)$/</span>, <span class="comment">// 上传图片类型</span></span><br><span class="line">  isChina: <span class="regexp">/^[\u4e00-\u9fa5]&#123;2,8&#125;$/</span>,</span><br><span class="line">  isNozeroNumber: <span class="regexp">/^\+?[1-9]\d*$/</span>, <span class="comment">// 大于零的正整数</span></span><br><span class="line">  float: <span class="regexp">/^\d+(\.?|(\.\d+)?)$/</span>, <span class="comment">// 匹配正整数或者小数 或者0.这个特殊值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/regular/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js-util" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
