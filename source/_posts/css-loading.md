@@ -5,6 +5,11 @@ tags:
     - css
 ---
 
+
+![img.png](https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/loading.gif)
+
+<!--more-->
+直接上代码
 ```css
 .loading{
     display: inline-block;
@@ -32,7 +37,4 @@ tags:
     }
   }
 ```
-#### 效果图， 速度比较慢
-
-![img.png](https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/loading.gif)
 
