@@ -2,6 +2,9 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "author": "xianyuya <s22529634@aliyun.com>",
+  "license": "MIT",
+  "homepage": "http:// blob/xianyuya.ltd/",
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",

@@ -26,6 +26,11 @@ hexo-cli安装
     hexo server
 ```
 ----
+4.新建文章 
+
+```bash
+    hexo new name
+```
 ## 关于发布
 项目使用[Travis CI ](https://travis-ci.com/) 持续集成发布，代码使用git提交到仓库后自动更新发布
 
