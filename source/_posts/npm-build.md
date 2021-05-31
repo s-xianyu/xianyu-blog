@@ -36,6 +36,89 @@ vue create xianyuNpm
  2.新建文件夹packages用于存放组件（vue开发组件可以放在这里里面）
 ![image.png](/assets/npm-build/image.png)
 
+
+
+countNumber.vue测试代码
+```vue
+<template>
+  <div class="count-number" :style="{color: color, fontSize: size + 'px'}">
+    <slot/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'countNumber',
+  props: {
+    color: {
+      type: String,
+      default: 'red'
+    },
+    size: {
+      type: String,
+      default: '12'
+    }
+  }
+}
+</script>
+```
+
+countNumber同级index.js
+```javascript
+import CountNumber from './countNumber'
+// 存储组件列表
+const components = [
+    CountNumber
+]
+/*
+  定义install 方法，接收Vue作为参数，如果使用use注册插件，则所有的组件都将被注册
+*/
+const install = function (Vue) {
+    // 判断是否安装
+    if(install.installed){return}
+    // 遍历所有组件
+    components.map(item => {
+        Vue.component(item.name,item)
+    })
+}
+// 判断是否引入文件
+if(typeof window !== 'undefined' && window.Vue){
+    install(window.Vue)
+}
+export default{
+    install,
+    CountNumber
+}
+```
+
+packages下的index.js
+```javascript
+import CountNumber from './countNumber'
+// 存储组件列表
+const components = [
+    CountNumber
+]
+/*
+  定义install 方法，接收Vue作为参数，如果使用use注册插件，则所有的组件都将被注册
+*/
+const install = function (Vue) {
+    // 判断是否安装
+    if(install.installed){return}
+    // 遍历所有组件
+    components.map(item => {
+        Vue.component(item.name,item)
+    })
+}
+// 判断是否引入文件
+if(typeof window !== 'undefined' && window.Vue){
+    install(window.Vue)
+}
+export default{
+    install,
+    CountNumber
+}
+```
+
 3.新建vue.config.js文件（项目打包配置）
 ```javascript
 module.exports = {
@@ -164,4 +247,5 @@ nrm test npm
 nrm del npm
 ```
 ![image.png](/assets/npm-build/image1.png)
+
 ![image.png](/assets/npm-build/image2.png)
