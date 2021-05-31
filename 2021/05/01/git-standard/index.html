@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2019 | 咸鱼呀-博客</title>
+  <title>git提交规范 | 咸鱼呀-博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端小白">
-<meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼呀-博客">
-<meta property="og:url" content="http://example.com/archives/2019/index.html">
+  <meta name="description" content="规范的作用大多数情况下，看提交历史的人跟提交代码的人都不是同一个人，当别人阅读你的提交历史时，他很可能是不知道具体代码细节的，你如何在最短的时间内让他一眼知道每次提交的意义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git提交规范">
+<meta property="og:url" content="http://example.com/2021/05/01/git-standard/index.html">
 <meta property="og:site_name" content="咸鱼呀-博客">
-<meta property="og:description" content="前端小白">
+<meta property="og:description" content="规范的作用大多数情况下，看提交历史的人跟提交代码的人都不是同一个人，当别人阅读你的提交历史时，他很可能是不知道具体代码细节的，你如何在最短的时间内让他一眼知道每次提交的意义">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-01T15:58:43.000Z">
+<meta property="article:modified_time" content="2021-05-31T09:55:09.112Z">
 <meta property="article:author" content="xianyu">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼呀-博客" type="application/atom+xml">
@@ -152,98 +155,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-git-standard" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/20/regular/" class="archive-article-date">
-  	<time datetime="2019-12-20T19:45:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/20/regular/">正则常用表达式</a>
+    <h1 class="article-title" itemprop="name">
+      git提交规范
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/05/01/git-standard/" class="archive-article-date">
+  	<time datetime="2021-05-01T15:58:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="规范的作用"><a href="#规范的作用" class="headerlink" title="规范的作用"></a>规范的作用</h2><p>大多数情况下，看提交历史的人跟提交代码的人都不是同一个人，当别人阅读你的提交历史时，他很可能是不知道具体代码细节的，你如何在最短的时间内让他一眼知道每次提交的意义</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">每次提交影响的具体范围？</span><br><span class="line">这个bug在哪次提交中被修复了？</span><br><span class="line">这个新功能是在哪次提交中增加的？</span><br><span class="line">修改是否向下兼容？</span><br><span class="line">是否回滚了代码？</span><br><span class="line">是否只是修改了文档、调整了代码格式？</span><br><span class="line">是否修改了测试、是否进行了重构？</span><br><span class="line">是否对代码进行了性能优化？</span><br></pre></td></tr></table></figure>
+<h2 id="生成CHANGELOG"><a href="#生成CHANGELOG" class="headerlink" title="生成CHANGELOG"></a>生成CHANGELOG</h2><p>而且规范的Git提交历史，还可以直接生成项目发版的CHANGELOG<a target="_blank" rel="noopener" href="https://github.com/semantic-release/semantic-release">（semantic-release）</a></p>
+<h2 id="规范细则"><a href="#规范细则" class="headerlink" title="规范细则"></a>规范细则</h2><p>对于Git的提交日志，我们有非常明确而详细的提交规范。这将有助于我们在查看项目历史时，更容易明确每一次提交的内容。另一方面，我们还直接使用了Git提交日志来生成AngularJS的变更日志。</p>
+<p>Git的提交日志可以通过常用的Git工作流或向导工具<a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">(Commitizen)</a>来生成。如果你选择使用<a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">(Commitizen)</a>，那只需要在Git暂存修改后，执行“yarn run commit”命令即可。</p>
+<h2 id="提交消息格式"><a href="#提交消息格式" class="headerlink" title="提交消息格式"></a>提交消息格式</h2><p>每个类型值都表示了不同的含义，类型值必须是以下的其中一个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">feat：提交新功能</span><br><span class="line">fix：修复了bug</span><br><span class="line">docs：只修改了文档</span><br><span class="line">style：调整代码格式，未修改代码逻辑（比如修改空格、格式化、缺少分号等）</span><br><span class="line">refactor：代码重构，既没修复bug也没有添加新功能</span><br><span class="line">perf：性能优化，提高性能的代码更改</span><br><span class="line">test：添加或修改代码测试</span><br><span class="line">chore：对构建流程或辅助工具和依赖库（如文档生成等）的更改</span><br></pre></td></tr></table></figure>
+<ul>
+<li>人生苦短，请遵守规范。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/images/wxpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/01/git-standard/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/js-util/" class="archive-article-date">
-  	<time datetime="2019-07-02T15:50:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/24/npm-build/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue组件打包到发布流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/02/js-util/">JS工具函数-转载</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -267,8 +355,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
