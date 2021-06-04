@@ -9,8 +9,8 @@ menu:
     关于: life
     搜索: search
 
-sidePic: https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/sidePic2.jpg
-avatar: https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/avatar2.jpg
+sidePic: /assets/user/sidePic2.jpg
+avatar: /assets/user/avatar2.jpg
 
 excerpt_link: 继续阅读
 excerpt: 200

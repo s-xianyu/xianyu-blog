@@ -34,7 +34,7 @@ vue create xianyuNpm
 ```
 
  2.新建文件夹packages用于存放组件（vue开发组件可以放在这里里面）
-![image.png](/assets/npm-build/image.png)
+![image.png](/assets/article/image.png)
 
 
 
@@ -246,6 +246,6 @@ nrm test npm
 // 删除镜像源
 nrm del npm
 ```
-![image.png](/assets/npm-build/image1.png)
+![image.png](/assets/article/image1.png)
 
-![image.png](/assets/npm-build/image2.png)
+![image.png](/assets/article/image2.png)
