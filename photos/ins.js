@@ -117,15 +117,15 @@
           var liTmpl = "";
           for (var i = 0, len = data.link.length; i < len; i++) {
 
-            var minSrc = 'https://raw.githubusercontent.com/s-xianyu/blog-static/master/camera/camera' + data.link[i] + '.jpg';
-            var src = 'https://raw.githubusercontent.com/s-xianyu/blog-static/master/camera/camera' + data.link[i];
+            var minSrc = '/assets/camera/camera' + data.link[i] + '.jpg';
+            var src = '/assets/camera/camera' + data.link[i];
             var type = data.type[i];
             var target = src + (type === 'video' ? '.mp4' : '.jpg');
             src += '.jpg';
 
             liTmpl += '<figure style="overflow: hidden;" class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target="' + target + '">\
-                  <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/images/empty.png" itemprop="thumbnail" onload="lzld(this)">\
+                  <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/user/empty.png" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' + data.text[i] + '</figcaption>\
             </figure>';
@@ -690,7 +690,7 @@
             observeDOM(watches, container, debouncedCheck);
           }
 
-          // failsafe check, every 200ms we check for visible images
+          // failsafe check, every 200ms we check for visible user
           // usecase: a hidden parent containing eleements
           // when the parent becomes visible, we have no event that the children
           // became visible
