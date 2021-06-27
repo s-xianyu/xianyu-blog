@@ -46,6 +46,7 @@ import {
 	getCurrentInstance,
 	reactive,
 	toRefs,
+    computed,
 	ref,
 	nextTick
 } from 'vue';
@@ -62,11 +63,13 @@ export default defineComponent({
 		// 存储dom数组 需push
 		const myRef = ref([]);
 		// 定义值
-		const num = ref(12);
+		const num = ref<number>(12);
 		// 定义多个值 2.0里相当于data
 		const state = reactive({
 			colors: 'red' // style里可使用
 		});
+        // 创建一个计算属性
+		const addAge = computed(() => el.ctx.num++ );
 		// 生命周期
 		onBeforeMount(() => {
 			console.log(el);
