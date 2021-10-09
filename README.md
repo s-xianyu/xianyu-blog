@@ -14,7 +14,7 @@ hexo-cli安装
 
 1.项目拉取
 ```bash
-    https://github.com/s-xianyu/xianyu-blog.git
+    git clone https://github.com/s-xianyu/xianyu-blog.git
     cd xianyu-blog
 ```
 2.安装依赖
