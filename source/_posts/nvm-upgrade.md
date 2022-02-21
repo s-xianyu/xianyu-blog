@@ -1,13 +1,16 @@
 ---
 title: nvm-upgrade
 date: 2021-10-11 09:40:24
-tags: node
----
+tags: 
+    - 前端
+    - nodeJs
 
 ##NVM升级
 
 使用nvm 时报错如下
 nvm is already installed in /usr/xxx/.nvm, trying to update using git
+
+<!--more-->
 
 在官方 github issue 中发现以下解决方案,记录一下
 
