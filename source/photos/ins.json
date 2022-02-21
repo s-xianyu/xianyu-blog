@@ -96,7 +96,7 @@
         "src": ["", "", "", "", "", ""],
         "link": ["77", "78", "79", "80", "81", "82", "83", "84", "85"],
         "text": ["斗罗大陆", "1988", "1988", "斗罗大陆", "头像", "动漫", "动漫", "下雪", "下雪"],
-        "type": ["image", "image", "image", "image", "image", "video", "video"]
+        "type": ["image","image","image", "image", "image", "image", "image", "video", "video"]
       }
     }
   ]
