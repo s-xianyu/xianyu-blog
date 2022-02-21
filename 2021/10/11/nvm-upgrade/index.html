@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>WebStorm配置本地测试服务器 | 咸鱼呀-博客</title>
+  <title>nvm-upgrade | 咸鱼呀-博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.﻿﻿ 点击Settings 进入设置2.﻿﻿ 选择 Build, Execution, Deployment 下的 Debuggera. 将端口号 63342 改为 8080b. 勾选Can accept external connections(可以接受外部连接)">
+  <meta name="description" content="##NVM升级 使用nvm 时报错如下nvm is already installed in &#x2F;usr&#x2F;xxx&#x2F;.nvm, trying to update using git 在官方 github issue 中发现以下解决方案,记录一下 1234567891011set -ecd ~&#x2F;.nvmgit fetch --tagsTAG&#x3D;$(git describe --tags &#96;git rev-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebStorm配置本地测试服务器">
-<meta property="og:url" content="http://example.com/2020/05/29/WebStorm-server/index.html">
+<meta property="og:title" content="nvm-upgrade">
+<meta property="og:url" content="http://example.com/2021/10/11/nvm-upgrade/index.html">
 <meta property="og:site_name" content="咸鱼呀-博客">
-<meta property="og:description" content="1.﻿﻿ 点击Settings 进入设置2.﻿﻿ 选择 Build, Execution, Deployment 下的 Debuggera. 将端口号 63342 改为 8080b. 勾选Can accept external connections(可以接受外部连接)">
+<meta property="og:description" content="##NVM升级 使用nvm 时报错如下nvm is already installed in &#x2F;usr&#x2F;xxx&#x2F;.nvm, trying to update using git 在官方 github issue 中发现以下解决方案,记录一下 1234567891011set -ecd ~&#x2F;.nvmgit fetch --tagsTAG&#x3D;$(git describe --tags &#96;git rev-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-29T16:23:58.000Z">
+<meta property="article:published_time" content="2021-10-11T09:40:24.000Z">
 <meta property="article:modified_time" content="2022-02-21T01:49:25.472Z">
 <meta property="article:author" content="xianyu">
-<meta property="article:tag" content="工具">
+<meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼呀-博客" type="application/atom+xml">
@@ -155,29 +155,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-WebStorm-server" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-nvm-upgrade" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      WebStorm配置本地测试服务器
+      nvm-upgrade
     </h1>
   
 
         
-        <a href="/2020/05/29/WebStorm-server/" class="archive-article-date">
-  	<time datetime="2020-05-29T16:23:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+        <a href="/2021/10/11/nvm-upgrade/" class="archive-article-date">
+  	<time datetime="2021-10-11T09:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.﻿﻿ 点击Settings 进入设置<br /><br><br />2.﻿﻿ 选择 Build, Execution, Deployment 下的 Debugger<br />a. 将端口号 63342 改为 8080<br />b. 勾选Can accept external connections(可以接受外部连接)<br /></p>
-<a id="more"></a>
-<p><br />3. 选择 Build, Execution, Deployment 下的 Deployment<br />a. 点击”+”号，增加一条规则<br />b. 设置 Name 为 localhost，Type 设置为 Local or mounted folder(本地或安装文件夹)<br /><br><br />4.选择 Connection<br />a. Folder 设为本地前端页面文件夹路径<br />b. Web server root URL 设为本机的IP和8080端口<br />c. 电脑运行 cmd 打开终端 输入 ipconfig 命令 查询本机IP地址<br /><br><br />5.选择 Mappings<br />a. Local path 设置为本地前端页面文件夹路径<br />b. Web path on server ‘localhost ‘ 设置为 前端页面的文件夹</p>
+        <p>##NVM升级</p>
+<p>使用nvm 时报错如下<br>nvm is already installed in /usr/xxx/.nvm, trying to update using git</p>
+<p>在官方 github issue 中发现以下解决方案,记录一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">cd ~/.nvm</span><br><span class="line"></span><br><span class="line">git fetch --tags</span><br><span class="line">TAG=$(git describe --tags `git rev-list --tags --max-count=1`)</span><br><span class="line">echo &quot;Checking out tag $TAG...&quot;</span><br><span class="line">git checkout &quot;$TAG&quot;</span><br><span class="line"></span><br><span class="line">source ~/.nvm/nvm.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后从新开启iTerm命令执行<br>curl -o- <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh">https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh</a> | bash</p>
+<p>重启iTerm </p>
 
       
 
@@ -217,7 +220,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -273,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/05/29/WebStorm-server/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/11/nvm-upgrade/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/01/web-Ios-Android/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          解决ios端inout失焦时，底部白底
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/04/css-loading/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一个好看的loading</div>
+    <a href="/2021/06/27/vue3-record/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue 3.0 个人记录分享</div>
       <i class="icon-circle-right"></i>
     </a>
   

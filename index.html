@@ -154,6 +154,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nvm-upgrade" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/11/nvm-upgrade/">nvm-upgrade</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/11/nvm-upgrade/" class="archive-article-date">
+  	<time datetime="2021-10-11T09:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##NVM升级</p>
+<p>使用nvm 时报错如下<br>nvm is already installed in /usr/xxx/.nvm, trying to update using git</p>
+<p>在官方 github issue 中发现以下解决方案,记录一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set -e</span><br><span class="line"></span><br><span class="line">cd ~/.nvm</span><br><span class="line"></span><br><span class="line">git fetch --tags</span><br><span class="line">TAG=$(git describe --tags `git rev-list --tags --max-count=1`)</span><br><span class="line">echo &quot;Checking out tag $TAG...&quot;</span><br><span class="line">git checkout &quot;$TAG&quot;</span><br><span class="line"></span><br><span class="line">source ~/.nvm/nvm.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后从新开启iTerm命令执行<br>curl -o- <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh">https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh</a> | bash</p>
+<p>重启iTerm </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/11/nvm-upgrade/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue3-record" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -859,86 +938,6 @@
 
 
   
-    <article id="post-vue-Ie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/19/vue-Ie/">vue 对IE的支持</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/19/vue-Ie/" class="archive-article-date">
-  	<time datetime="2018-11-19T15:46:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-对IE的支持"><a href="#vue-对IE的支持" class="headerlink" title="vue 对IE的支持"></a>vue 对IE的支持</h1><p><span data-type="color" style="color:rgb(0, 0, 0)"><span data-type="background" style="background-color:rgb(255, 255, 255)">Vue 官方对于 ie 浏览器版本兼容情况的描述是 ie9+，即是 ie9 及更高的版本。经过测试，Vue 的核心框架 </span></span><code>vuejs</code><span data-type="color" style="color:rgb(0, 0, 0)"><span data-type="background" style="background-color:rgb(255, 255, 255)">本身，以及生态的官方核心插件（VueRouter、Vuex等）均可以在 ie9 上正常使用。</span></span></p>
-        
-          <a class="article-more-a" href="/2018/11/19/vue-Ie/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/19/vue-Ie/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -953,7 +952,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 xianyu
+    		&copy; 2022 xianyu
     	</div>
       	<div class="footer-right">
             Powered <a href="http://hexo.io/" target="_blank">Hexo</a> by xianyu
