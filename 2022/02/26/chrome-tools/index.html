@@ -6,17 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>咸鱼呀-博客</title>
+  <title>开发一个个人的cli | 咸鱼呀-博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端小白">
-<meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼呀-博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="一、脚手架的本质作用和解决了前端的那些问题  1.为了创建项目的一个基本结构 提供项目规范和约定  相同的组织结构 相同的开发范式 相同的模块依赖 相同的工具配置 相同的代码基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发一个个人的cli">
+<meta property="og:url" content="http://example.com/2022/02/26/chrome-tools/index.html">
 <meta property="og:site_name" content="咸鱼呀-博客">
-<meta property="og:description" content="前端小白">
+<meta property="og:description" content="一、脚手架的本质作用和解决了前端的那些问题  1.为了创建项目的一个基本结构 提供项目规范和约定  相同的组织结构 相同的开发范式 相同的模块依赖 相同的工具配置 相同的代码基础">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/02/24/AVPqNX9hiQ2Cl6F.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/24/9mBqghL7wGtDQPT.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/25/U8gTGpY9SXtLJiB.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/O3GNI2DKXByRwgC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/vHA4Xe9Wi7zVhdw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/2sGXYH5Jt1iZbWk.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/8KYzyQ1jHWUJsSi.png">
+<meta property="article:published_time" content="2022-02-26T11:36:59.000Z">
+<meta property="article:modified_time" content="2022-02-26T12:43:07.625Z">
 <meta property="article:author" content="xianyu">
+<meta property="article:tag" content="chrome">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/02/24/AVPqNX9hiQ2Cl6F.png">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼呀-博客" type="application/atom+xml">
   
@@ -152,16 +163,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-chrome-tools" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-chrome-tools" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/26/chrome-tools/">开发一个个人的cli</a>
+    <h1 class="article-title" itemprop="name">
+      开发一个个人的cli
     </h1>
   
 
@@ -185,11 +194,124 @@
 <li>相同的代码基础</li>
 </ul>
 </blockquote>
-        
-          <a class="article-more-a" href="/2022/02/26/chrome-tools/#more">more >></a>
-        
+<a id="more"></a>
+<blockquote>
+<p>使用到的包及说明</p>
+<ul>
+<li>axios---拉取github模板名和信息</li>
+<li>commander---nodejs命令行工具</li>
+<li>inquirer---命令行和用户交互工具</li>
+<li>fs-extra---fs的扩展工具，支持promise</li>
+<li>util---工具类让download-git-repo支持异步</li>
+<li>download-git-repo---下载工具（GitHub, GitLab, Bitbucket）</li>
+
+
+<blockquote>
+<blockquote>
+<blockquote>
+<p>未使用到的</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<li>chalk---为命令行加字体颜色和背景颜色</li>
+<li>ora---下载时的loading</li>
+<li>progress---下载时的进度条</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><font size=2>2.脚手架就是在启动的时候询问一些简单的问题，并且通过用户回答的结果去渲染对应的模板文件，基本工作流程如下：</font><br><font color=#4d81e0 size=2>通过命令行交互询问用户问题</font><br><font color=#4d81e0 size=2>根据用户回答的结果生成文件</font></p>
+</blockquote>
+<p><font size=4>二、常用的脚手架工具</font></p>
+<blockquote>
+<p>Yeoman 通用项目脚手架 灵活易拓展<br>Plop 创建特定类型的文件/模块</p>
+</blockquote>
+<p><font size=4>三、开始搭建cli</font></p>
+<ul>
+<li>新建项目目录 xianyu-cli </li>
+<li>npm init 生成 package.json 文件</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/02/24/AVPqNX9hiQ2Cl6F.png" alt="Snipaste_2022-02-24_23-40-19.png"></p>
+<ul>
+<li>创建脚手架入口js和package.json配置信息</li>
+<li>把Npm命令软链到全局</li>
+<li>安装<a target="_blank" rel="noopener" href="https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md">commander</a></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/02/24/9mBqghL7wGtDQPT.png" alt="Snipaste_2022-02-24_23-50-28.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 如果软链被占用、可以手动删除一下</span></span><br><span class="line">npm rm ｜ uninstall -g packageName</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果不确定可以查看一下是否已存在</span></span><br><span class="line">npm ls -g packageName</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/02/25/U8gTGpY9SXtLJiB.png" alt="Snipaste_2022-02-25_00-03-28.png"></p>
+<blockquote>
+<p>编辑cli.js测试一下代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /usr/bin/env node</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">&#x27;commander&#x27;</span>) <span class="comment">// node 命令行工具</span></span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">&#x27;0.1.0&#x27;</span>)</span><br><span class="line">  .command(<span class="string">&#x27;create &lt;name&gt;&#x27;</span>)</span><br><span class="line">  .description(<span class="string">&#x27;确认创建一个新项目吗？&#x27;</span>)</span><br><span class="line">  .action(<span class="function"><span class="params">name</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 打印命令行输入的值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;您创建的项目名称为&#x27;</span> + name)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">  <span class="comment">// 版本号信息</span></span><br><span class="line">  .version(<span class="string">`v<span class="subst">$&#123;<span class="built_in">require</span>(<span class="string">&#x27;../package.json&#x27;</span>).version&#125;</span>`</span>)</span><br><span class="line">  .usage(<span class="string">&#x27;&lt;command&gt; [option]&#x27;</span>)</span><br><span class="line">program.parse(process.argv)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来我们就可以来创建create命令<br>编写create代码<br>安装fs 的扩展工具  <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/fs-extra">fs-extra</a><br>fs-extra是fs的一个扩展工具，支持 promise 方法，编写create.js时会使用</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir lib</span><br><span class="line">touch create.js</span><br><span class="line">npm install fs-extra --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在cli.js里引入create.js 并把name和options传进去<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">program</span><br><span class="line">  .version(<span class="string">&#x27;1.0.0&#x27;</span>)</span><br><span class="line">  .command(<span class="string">&#x27;create &lt;name&gt;&#x27;</span>)</span><br><span class="line">  .description(<span class="string">&#x27;确认创建一个新项目吗？&#x27;</span>)</span><br><span class="line">  <span class="comment">// -f or --force 为强制创建，如果创建的目录存在则直接覆盖</span></span><br><span class="line">  .option(<span class="string">&#x27;-f, --force&#x27;</span>, <span class="string">&#x27;强制创建传入&#x27;</span>)</span><br><span class="line">  .action(<span class="function">(<span class="params">name, options</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 打印命令行输入的值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;您创建的项目名称为&#x27;</span> + name)</span><br><span class="line">    <span class="comment">// 引入create,把创建任务放在create里执行</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">&#x27;../lib/create.js&#x27;</span>)(name, options)</span><br><span class="line">  &#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/create.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs-extra&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行创建命令</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">name, options</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;您创建的项目名称为&#x27;</span> + name, options)</span><br><span class="line">  <span class="comment">// 当前命令行选择的目录</span></span><br><span class="line">  <span class="keyword">const</span> cwd  = process.cwd();</span><br><span class="line">  <span class="comment">// 需要创建的目录地址</span></span><br><span class="line">  <span class="keyword">const</span> targetAir  = path.join(cwd, name)</span><br><span class="line">  <span class="comment">// 目录是否已经存在？</span></span><br><span class="line">  <span class="keyword">if</span> (fs.existsSync(targetAir)) &#123;</span><br><span class="line">    <span class="comment">// 存在提示是否为强制创建？ -f --force</span></span><br><span class="line">    <span class="keyword">if</span> (options.force) &#123;</span><br><span class="line">      <span class="keyword">await</span> fs.remove(targetAir)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// TODO：询问用户是否确定要覆盖</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<img src="https://s2.loli.net/2022/02/26/O3GNI2DKXByRwgC.png" alt="Snipaste_2022-02-26_13-15-33.png"></li>
+</ul>
+<blockquote>
+<p>接下来创建用户的询问信息<br>询问用户是否进行重写或退出</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上面引入inquirer</span></span><br><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">&#x27;inquirer&#x27;</span>)</span><br><span class="line">...</span><br><span class="line"><span class="comment">// TODO：询问用户是否确定要覆盖</span></span><br><span class="line"><span class="keyword">let</span> &#123; action &#125; = <span class="keyword">await</span> inquirer.prompt([</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;action&#x27;</span>,</span><br><span class="line">    type: <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">    message: <span class="string">&#x27;目录已存在，请选择一项继续操作！&#x27;</span>,</span><br><span class="line">    choices: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&#x27;重写&#x27;</span>,</span><br><span class="line">        value: <span class="string">&#x27;重写&#x27;</span></span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        name: <span class="string">&#x27;退出&#x27;</span>,</span><br><span class="line">        value: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line"><span class="keyword">if</span> (!action) &#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (action === <span class="string">&#x27;重写&#x27;</span>) &#123;</span><br><span class="line">  <span class="comment">// 移除已存在的目录</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`\r\nRemoving...`</span>)</span><br><span class="line">  <span class="keyword">await</span> fs.remove(targetAir)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试截图<br><img src="https://s2.loli.net/2022/02/26/vHA4Xe9Wi7zVhdw.png" alt="Snipaste_2022-02-26_14-08-51.png"></p>
+<p>到这里，简易版的cli就搭建完成了</p>
+</blockquote>
+<p><font size=4>四、从github生成模板</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装axios</span></span><br><span class="line">npm install axios --save</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在lib目录下新建 request.js 文件拉取模板列表</span></span><br><span class="line">cd lib &amp;&amp; touch request.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/request.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 axios 处理请求</span></span><br><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&#x27;axios&#x27;</span>)</span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> res.data;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取模板列表</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="variable">Promise</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getRepoList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&#x27;https://api.github.com/users/s-xianyu/repos&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取版本信息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>repo 模板名称</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="variable">Promise</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span>  <span class="title">getTagList</span>(<span class="params">repo</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">`https://api.github.com/repos/s-xianyu/<span class="subst">$&#123;repo&#125;</span>/tags`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  getRepoList,</span><br><span class="line">  getTagList</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在lib目录下新建 generator.js 用户处理拉取模板创建逻辑代码</span></span><br><span class="line">touch generator.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>拉取github仓库所有模板</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/generator.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; getRepoList &#125; = <span class="built_in">require</span>(<span class="string">&#x27;./request&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> inquirer = <span class="built_in">require</span>(<span class="string">&#x27;inquirer&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加加载动画</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">wrapLoading</span>(<span class="params">fn, message, ...args</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(message)</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 执行传入方法 fn</span></span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> fn(...args)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;模板生成失败，请重试！&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Generator</span> </span>&#123;</span><br><span class="line">  <span class="title">constructor</span> (<span class="params">name, targetDir</span>)&#123;</span><br><span class="line">    <span class="comment">// 目录名称</span></span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="comment">// 创建位置</span></span><br><span class="line">    <span class="built_in">this</span>.targetDir = targetDir;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取用户选择的模板</span></span><br><span class="line">  <span class="comment">// 1）从远程拉取模板数据</span></span><br><span class="line">  <span class="comment">// 2）用户选择自己新下载的模板名称</span></span><br><span class="line">  <span class="comment">// 3）return 用户选择的名称</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">getRepo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1）从远程拉取模板数据</span></span><br><span class="line">    <span class="keyword">const</span> repoList = <span class="keyword">await</span> wrapLoading(getRepoList, <span class="string">&#x27;模板获取中，请等待...&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> (!repoList.length) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回全部</span></span><br><span class="line">    <span class="comment">// const repos = repoList.map(item =&gt; item.name))</span></span><br><span class="line">    <span class="comment">// 过滤我们需要的模板名称</span></span><br><span class="line">    <span class="keyword">let</span> repos = []</span><br><span class="line">    repoList.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (item.name.includes(<span class="string">&#x27;uni&#x27;</span>) || item.name.includes(<span class="string">&#x27;vue&#x27;</span>) || item.name.includes(<span class="string">&#x27;xianyu-blog&#x27;</span>)) &#123;</span><br><span class="line">        repos.push(item.name)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2）用户选择自己新下载的模板名称</span></span><br><span class="line">    <span class="keyword">const</span> &#123; repo &#125; = <span class="keyword">await</span> inquirer.prompt(&#123;</span><br><span class="line">      name: <span class="string">&#x27;repo&#x27;</span>,</span><br><span class="line">      type: <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">      choices: repos,</span><br><span class="line">      message: <span class="string">&#x27;请选择你要创建的项目模板&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3）return 用户选择的名称</span></span><br><span class="line">    <span class="keyword">return</span> repo;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 核心创建逻辑</span></span><br><span class="line">  <span class="comment">// 1）获取模板名称</span></span><br><span class="line">  <span class="comment">// 2）获取 tag 名称</span></span><br><span class="line">  <span class="comment">// 3）下载模板到模板目录</span></span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1）获取模板名称</span></span><br><span class="line">    <span class="keyword">const</span> repo = <span class="keyword">await</span> <span class="built_in">this</span>.getRepo()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;你选择了项目为:&#x27;</span> + repo)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = Generator;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>拉取模板版本号，更上面的逻辑是一样的<br>不同是需要传一个模板名称过去</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="title">getRepo</span>(<span class="params"></span>)</span>&#123;...&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="title">getTag</span>(<span class="params">repo</span>)</span> &#123;</span><br><span class="line">  <span class="comment">// 1）基于 repo 结果，远程拉取对应的 tag 列表</span></span><br><span class="line">  <span class="keyword">const</span> tags = <span class="keyword">await</span> wrapLoading(getTagList, <span class="string">&#x27;版本号获取中，请等待...&#x27;</span>, repo);</span><br><span class="line">  <span class="keyword">if</span> (!tags?.length) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 过滤我们需要的 tag 名称</span></span><br><span class="line">  <span class="keyword">const</span> tagsList = tags.map(<span class="function"><span class="params">item</span> =&gt;</span> item.name);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2）用户选择自己需要下载的 tag</span></span><br><span class="line">  <span class="keyword">const</span> &#123; tag &#125; = <span class="keyword">await</span> inquirer.prompt(&#123;</span><br><span class="line">    name: <span class="string">&#x27;tag&#x27;</span>,</span><br><span class="line">    type: <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">    choices: tagsList,</span><br><span class="line">    message: <span class="string">&#x27;请选择版本号&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3）return 用户选择的 tag</span></span><br><span class="line">  <span class="keyword">return</span> tag</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 1）获取模板名称</span></span><br><span class="line">  <span class="keyword">const</span> repo = <span class="keyword">await</span> <span class="built_in">this</span>.getRepo()</span><br><span class="line">  <span class="comment">// 2) 获取 tag 名称</span></span><br><span class="line">  <span class="keyword">const</span> tag = <span class="keyword">await</span> <span class="built_in">this</span>.getTag(repo)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;你选择了项目为:&#x27;</span> + repo + <span class="string">&#x27;，版本号为:&#x27;</span>+ (tag || <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>控制台测试结果<br><img src="https://s2.loli.net/2022/02/26/2sGXYH5Jt1iZbWk.png" alt="Snipaste_2022-02-26_17-36-31.png"> </p>
+</blockquote>
+<p><font size=4>五、拉取远程代码到本地</font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装download-git-repo</span></span><br><span class="line">npm install download-git-repo --save</span><br><span class="line"><span class="meta">#</span><span class="bash"> util工具可以让download-git-repo支持promise</span></span><br><span class="line">npm install util --save</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>编写下载函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> downloadGitRepo = <span class="built_in">require</span>(<span class="string">&#x27;download-git-repo&#x27;</span>) <span class="comment">// 不支持 Promise</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="title">create</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 3）下载模板到模板目录</span></span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">this</span>.download(repo, tag)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="title">download</span>(<span class="params">repo, tag</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1）拼接下载地址</span></span><br><span class="line">  <span class="keyword">const</span> requestUrl = <span class="string">`s-xianyu/<span class="subst">$&#123;repo&#125;</span><span class="subst">$&#123;tag?<span class="string">&#x27;#&#x27;</span>+tag:<span class="string">&#x27;&#x27;</span>&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2）调用下载方法</span></span><br><span class="line">  <span class="keyword">await</span> wrapLoading(</span><br><span class="line">    <span class="built_in">this</span>.downloadGitRepo, <span class="comment">// 远程下载方法</span></span><br><span class="line">    <span class="string">&#x27;模板下载中，请稍后...&#x27;</span>, <span class="comment">// 加载提示信息</span></span><br><span class="line">    requestUrl, <span class="comment">// 参数1: 下载地址</span></span><br><span class="line">    path.resolve(process.cwd(), <span class="built_in">this</span>.targetDir)) <span class="comment">// 参数2: 创建位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 脚手架的安装与使用</span></span><br><span class="line">npm install -g xianyu-cli22</span><br><span class="line"><span class="meta">#</span><span class="bash">查看版本</span></span><br><span class="line">xy -V</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用简写名称拉取模板</span></span><br><span class="line">xy create cli-demo</span><br><span class="line">cd cli-demo</span><br><span class="line">npm run server</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/02/26/8KYzyQ1jHWUJsSi.png" alt="Snipaste_2022-02-26_20-14-46.png"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/user/wxpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -209,16 +331,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/26/chrome-tools/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/26/chrome-tools/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/10/11/nvm-upgrade/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nvm-upgrade</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,722 +419,14 @@
 
 
 
-
-  
-    <article id="post-nvm-upgrade" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/11/nvm-upgrade/">nvm-upgrade</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/11/nvm-upgrade/" class="archive-article-date">
-  	<time datetime="2021-10-11T09:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##NVM升级</p>
-<p>使用nvm 时报错如下<br>nvm is already installed in /usr/xxx/.nvm, trying to update using git</p>
-        
-          <a class="article-more-a" href="/2021/10/11/nvm-upgrade/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodeJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/11/nvm-upgrade/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue3-record" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/27/vue3-record/">vue 3.0 生命周期函数记录</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/27/vue3-record/" class="archive-article-date">
-  	<time datetime="2021-06-27T02:03:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录3.0常用方法及属性</p>
-<p>简单两个页面， 主要是查看生命周期</p>
-        
-          <a class="article-more-a" href="/2021/06/27/vue3-record/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">vue 3.0</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/27/vue3-record/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git-standard" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/01/git-standard/">git提交规范</a>
-    </h1>
-  
-
-        
-        <a href="/2021/05/01/git-standard/" class="archive-article-date">
-  	<time datetime="2021-05-01T15:58:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="规范的作用"><a href="#规范的作用" class="headerlink" title="规范的作用"></a>规范的作用</h2><p>大多数情况下，看提交历史的人跟提交代码的人都不是同一个人，当别人阅读你的提交历史时，他很可能是不知道具体代码细节的，你如何在最短的时间内让他一眼知道每次提交的意义</p>
-        
-          <a class="article-more-a" href="/2021/05/01/git-standard/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/05/01/git-standard/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-npm-build" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/24/npm-build/">Vue组件打包到发布流程</a>
-    </h1>
-  
-
-        
-        <a href="/2021/04/24/npm-build/" class="archive-article-date">
-  	<time datetime="2021-04-24T15:47:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-npm是什么"><a href="#一-npm是什么" class="headerlink" title="一. npm是什么"></a>一. npm是什么</h2><p>   npm（全称 Node Package Manager，即“node包管理器”）是Node.js默认的、用JavaScript编写的软件包管理系统。</p>
-        
-          <a class="article-more-a" href="/2021/04/24/npm-build/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/04/24/npm-build/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nvm-window" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/03/nvm-window/">NVM 安装 之 window</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/03/nvm-window/" class="archive-article-date">
-  	<time datetime="2020-07-03T16:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-首先下载nvm安装包"><a href="#1-首先下载nvm安装包" class="headerlink" title="1.首先下载nvm安装包"></a>1.首先下载nvm安装包</h3><p>官方地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a><br /></p>
-<p>推荐下载： <font color='red'> nvm-setup.zip  </font></p>
-        
-          <a class="article-more-a" href="/2020/07/03/nvm-window/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodeJs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/03/nvm-window/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web-Ios-Android" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/01/web-Ios-Android/">解决ios端inout失焦时，底部白底</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/01/web-Ios-Android/" class="archive-article-date">
-  	<time datetime="2020-07-01T16:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>经常在ios端遇见键盘弹起后，带起input框上拉，当键盘关闭后，input没有回到原来的位置，这时，ios底部会有键盘收起后的留白。</p>
-<p>想要解决这种问题，需要在键盘弹起、关闭时监听，设置scrollTo（top:0, left:0, behavior: ‘smooth’）</p>
-<p>下面是代码↓</p>
-        
-          <a class="article-more-a" href="/2020/07/01/web-Ios-Android/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">H5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/01/web-Ios-Android/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WebStorm-server" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/29/WebStorm-server/">WebStorm配置本地测试服务器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/29/WebStorm-server/" class="archive-article-date">
-  	<time datetime="2020-05-29T16:23:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.﻿﻿ 点击Settings 进入设置<br /><br><br />2.﻿﻿ 选择 Build, Execution, Deployment 下的 Debugger<br />a. 将端口号 63342 改为 8080<br />b. 勾选Can accept external connections(可以接受外部连接)<br /></p>
-        
-          <a class="article-more-a" href="/2020/05/29/WebStorm-server/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/29/WebStorm-server/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-css-loading" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/04/css-loading/">一个好看的loading</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/04/css-loading/" class="archive-article-date">
-  	<time datetime="2020-01-04T16:30:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/loading.gif" alt="img.png"></p>
-        
-          <a class="article-more-a" href="/2020/01/04/css-loading/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/04/css-loading/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-regular" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/regular/">正则常用表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/regular/" class="archive-article-date">
-  	<time datetime="2019-12-20T19:45:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> regExpConfig = &#123;</span><br><span class="line">  IDcard: <span class="regexp">/^[1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X)$/</span>, <span class="comment">// 身份证</span></span><br><span class="line">  mobile: <span class="regexp">/^1([3|4|5|7|8|])\d&#123;9&#125;$/</span>, <span class="comment">// 手机号码</span></span><br><span class="line">  telephone: <span class="regexp">/^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$/</span>, <span class="comment">// 固定电话</span></span><br><span class="line">  num: <span class="regexp">/^[0-9]*$/</span>, <span class="comment">// 数字</span></span><br><span class="line">  phoneNo: <span class="regexp">/(^1([3|4|5|7|8|])\d&#123;9&#125;$)|(^(\(\d&#123;3,4&#125;\)|\d&#123;3,4&#125;-|\s)?\d&#123;7,14&#125;$)/</span>, <span class="comment">// 电话或者手机</span></span><br><span class="line">  policeNo: <span class="regexp">/^[0-9A-Za-z]&#123;4,10&#125;$/</span>, <span class="comment">// 账号4-10位数字或字母组成</span></span><br><span class="line">  pwd: <span class="regexp">/^[0-9A-Za-z]&#123;6,16&#125;$/</span>, <span class="comment">// 密码由6-16位数字或者字母组成</span></span><br><span class="line">  isNumAlpha: <span class="regexp">/^[0-9A-Za-z]*$/</span>, <span class="comment">// 字母或数字</span></span><br><span class="line">  isAlpha: <span class="regexp">/^[a-zA-Z]*$/</span>, <span class="comment">// 是否字母</span></span><br><span class="line">  isNumAlphaCn: <span class="regexp">/^[0-9a-zA-Z\u4E00-\uFA29]*$/</span>, <span class="comment">// 是否数字或字母或汉字</span></span><br><span class="line">  isPostCode: <span class="regexp">/^[\d-]*$/i</span>, <span class="comment">// 是否邮编</span></span><br><span class="line">  isNumAlphaUline: <span class="regexp">/^[0-9a-zA-Z_]*$/</span>, <span class="comment">// 是否数字、字母或下划线</span></span><br><span class="line">  isNumAndThanZero: <span class="regexp">/^([1-9]\d*(\.\d+)?|0)$/</span>, <span class="comment">// 是否为整数且大于0/^[1-9]\d*(\.\d+)?$/</span></span><br><span class="line">  isNormalEncode: <span class="regexp">/^(\w||[\u4e00-\u9fa5])&#123;0,&#125;$/</span>, <span class="comment">// 是否为非特殊字符（包括数字字母下划线中文）</span></span><br><span class="line">  isTableName: <span class="regexp">/^[a-zA-Z][A-Za-z0-9#$_-]&#123;0,29&#125;$/</span>, <span class="comment">// 表名</span></span><br><span class="line">  isInt: <span class="regexp">/^-?\d+$/</span>, <span class="comment">// 整数</span></span><br><span class="line">  isTableOtherName: <span class="regexp">/^[\u4e00-\u9fa5]&#123;0,20&#125;$/</span>, <span class="comment">// 别名</span></span><br><span class="line">  <span class="comment">// isText_30: /^(\W|\w&#123;1,2&#125;)&#123;0,15&#125;$/, // 正则</span></span><br><span class="line">  <span class="comment">// isText_20: /^(\W|\w&#123;1,2&#125;)&#123;0,10&#125;$/, // 正则</span></span><br><span class="line">  isText_30: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,30&#125;$/</span>, <span class="comment">// 匹配30个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_50: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,50&#125;$/</span>, <span class="comment">// 匹配50个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_20: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,20&#125;$/</span>, <span class="comment">// 匹配20个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_100: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,100&#125;$/</span>, <span class="comment">// 匹配100个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isText_250: <span class="regexp">/^(\W|\w&#123;1&#125;)&#123;0,250&#125;$/</span>, <span class="comment">// 匹配250个字符，字符可以使字母、数字、下划线、非字母，一个汉字算1个字符</span></span><br><span class="line">  isNotChina: <span class="regexp">/^[^\u4e00-\u9fa5]&#123;0,&#125;$/</span>, <span class="comment">// 不为中文  IDcard: /^[1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X)$/, // 身份证</span></span><br><span class="line">  IDcardAndAdmin: <span class="regexp">/^(([1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$|^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X))|(admin))$/</span>, <span class="comment">// 身份证或者是admin账号</span></span><br><span class="line">  IDcardTrim: <span class="regexp">/^\s*(([1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;)|([1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;([0-9]|X))|(admin))\s*$/</span>, <span class="comment">// 身份证</span></span><br><span class="line">  num1: <span class="regexp">/^[1-9]*$/</span>, <span class="comment">// 数字</span></span><br><span class="line">  companyNO: <span class="regexp">/^qqb_[0-9a-zA-Z_]&#123;1,&#125;$/</span>, <span class="comment">// 公司人员账号</span></span><br><span class="line">  imgType: <span class="regexp">/image\/(png|jpg|jpeg|gif)$/</span>, <span class="comment">// 上传图片类型</span></span><br><span class="line">  isChina: <span class="regexp">/^[\u4e00-\u9fa5]&#123;2,8&#125;$/</span>,</span><br><span class="line">  isNozeroNumber: <span class="regexp">/^\+?[1-9]\d*$/</span>, <span class="comment">// 大于零的正整数</span></span><br><span class="line">  float: <span class="regexp">/^\d+(\.?|(\.\d+)?)$/</span>, <span class="comment">// 匹配正整数或者小数 或者0.这个特殊值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/regular/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -977,8 +450,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
