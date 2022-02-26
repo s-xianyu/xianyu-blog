@@ -1,5 +1,5 @@
 ---
-title: vue 3.0 个人记录分享
+title: vue 3.0 生命周期函数记录
 date: 2021-06-27 02:03:26
 tags:
     - 前端
@@ -14,7 +14,6 @@ tags:
 
 
 <!--more-->
-
 ```javascript
 <template>
 	<div class="look">

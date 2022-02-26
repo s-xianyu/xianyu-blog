@@ -1,5 +1,5 @@
 ## 咸鱼呀-博客系统
-博客地址：[xianyuya.ltd](https://xianyuya.ltd/)
+博客地址：[blog.xianyuya.ltd](http://blog.xianyuya.ltd/)
 ----
 本项目基于 [hexo](https://hexo.io/zh-cn/index.html) 搭建，安装前请确认是否已安装（hexo-cli）
 
@@ -14,7 +14,7 @@ hexo-cli安装
 
 1.项目拉取
 ```bash
-    git clone https://github.com/s-xianyu/xianyu-blog.git
+    git clone git@github.com:s-xianyu/xianyu-blog.git
     cd xianyu-blog
 ```
 2.安装依赖
