@@ -2,7 +2,8 @@
 title: 开发一个个人的cli
 date: 2022-02-26 11:36:59
 tags:
-    - chrome
+    - node
+    - cli
 ---
 
 <font size=4>一、脚手架的本质作用和解决了前端的那些问题</font>
