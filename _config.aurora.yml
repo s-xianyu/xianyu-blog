@@ -128,7 +128,7 @@ gitalk:
   language: cn
   distractionFreeMode: true
   recentComment: true
-  proxy: 'https://blog.xianyuya.ltd/'
+  proxy: ''
 
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
