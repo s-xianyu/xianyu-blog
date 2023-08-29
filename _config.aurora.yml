@@ -61,9 +61,12 @@ menu:
   Tags: true
   Archives: true
   Friends: true
-  Aurora:
-    name: 'Github'
-    path: 'https://github.com/s-xianyu'
+  Vitepress:
+    name: 'vitepress-blog'
+    path: 'https://note.xianyuya.ltd/'
+  Github:
+      name: 'Github'
+      path: 'https://github.com/s-xianyu'
 
 #! ---------------------------------------------------------------
 #! Theme Config
