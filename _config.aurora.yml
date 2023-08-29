@@ -121,7 +121,7 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: true
+  enable: false
   autoExpand: true
   clientID: 'Iv1.90952b0d27fd3ed1'
   clientSecret: '57026f0499a24028184e320b15c97f5d157ba483'
@@ -162,9 +162,9 @@ twikoo:
 # Waline comment plugin
 # see https://waline.js.org/guide/get-started/
 waline:
-  enable: false
+  enable: true
   recentComment: true
-  reaction: false
+  reaction: true
   login: 'disable'
   meta: ['nick', 'mail']
   requiredMeta: ['nick', 'mail']
