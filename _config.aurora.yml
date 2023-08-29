@@ -129,7 +129,7 @@ gitalk:
   language: cn
   distractionFreeMode: true
   recentComment: true
-  proxy: ''
+  proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token'
 
 # Valine comment plugin (recommended!)
 # see https://valine.js.org/quickstart.html
