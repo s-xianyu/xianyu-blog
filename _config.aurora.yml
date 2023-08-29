@@ -122,8 +122,8 @@ gitalk:
   clientID: 'Iv1.90952b0d27fd3ed1'
   clientSecret: '57026f0499a24028184e320b15c97f5d157ba483'
   repo: 'https://github.com/s-xianyu/xianyu-blog' ## dev-blo-comments
-  owner: '@s-xianyu' ## owner name
-  admin: ['@s-xianyu'] ## ['admin_name']
+  owner: 's-xianyu' ## owner name
+  admin: ['s-xianyu'] ## ['admin_name']
   id: uid
   language: cn
   distractionFreeMode: true
