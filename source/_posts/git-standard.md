@@ -3,6 +3,8 @@ title: git提交规范
 date: 2021-05-1 15:58:43
 tags:
 - git
+- cover: 'https://schbrain-static-online.schbrain.com/resources/dffa8e69647da5cbb3e4fa4d4fdbc15a.jpg'
+- feature: true
 ---
 
 ## 规范的作用

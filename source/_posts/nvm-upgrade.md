@@ -4,6 +4,7 @@ date: 2021-10-11 09:40:24
 tags: 
     - 前端
     - nodeJs
+cover: 'https://schbrain-static-online.schbrain.com/resources/dffa8e69647da5cbb3e4fa4d4fdbc15a.jpg'
 ---
 
 ##NVM升级

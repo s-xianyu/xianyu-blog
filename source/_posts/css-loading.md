@@ -1,13 +1,5 @@
-<!--
- * @Author: ss shangs@schbrain.com
- * @Date: 2022-02-23 11:23:00
- * @LastEditors: ss shangs@schbrain.com
- * @LastEditTime: 2022-08-01 10:40:01
- * @FilePath: /xianyu-blog/source/_posts/css-loading.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 ---
-title: 一个bu好看的loading
+title: 一个好看的loading
 date: 2020-01-04 16:30:42
 tags:
     - css

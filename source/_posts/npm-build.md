@@ -5,6 +5,8 @@ tags:
     - javascript
     - npm
     - node
+cover: 'https://schbrain-static-online.schbrain.com/resources/dffa8e69647da5cbb3e4fa4d4fdbc15a.jpg'
+feature: true
 ---
 
 

@@ -4,6 +4,8 @@ date: 2022-02-26 11:36:59
 tags:
     - node
     - cli
+cover: 'https://schbrain-static-online.schbrain.com/resources/dffa8e69647da5cbb3e4fa4d4fdbc15a.jpg'
+feature: true
 ---
 
 <font size=4>一、脚手架的本质作用和解决了前端的那些问题</font>

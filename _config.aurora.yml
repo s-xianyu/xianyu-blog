@@ -62,11 +62,20 @@ menu:
   Archives: true
   Friends: true
   Vitepress:
-    name: 'vitepress-blog'
+    name: '知识库'
     path: 'https://note.xianyuya.ltd/'
+    i18n:
+      en: 'note'
+      zh-CN: '知识库'
   Github:
-      name: 'Github'
-      path: 'https://github.com/s-xianyu'
+    name: 'Github'
+    path: 'https://github.com/s-xianyu'
+  Pet:
+    name: '宠物项目'
+    path: 'https://xy.kuvinet.cn/'
+    i18n:
+      en: 'Pet'
+      zh-CN: '宠物项目'
 
 #! ---------------------------------------------------------------
 #! Theme Config
@@ -121,7 +130,7 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: false
+  enable: true
   autoExpand: true
   clientID: 'Iv1.90952b0d27fd3ed1'
   clientSecret: '57026f0499a24028184e320b15c97f5d157ba483'
@@ -162,7 +171,7 @@ twikoo:
 # Waline comment plugin
 # see https://waline.js.org/guide/get-started/
 waline:
-  enable: true
+  enable: false
   recentComment: true
   reaction: true
   login: 'disable'
