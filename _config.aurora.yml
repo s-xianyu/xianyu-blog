@@ -133,9 +133,9 @@ gitalk:
   enable: true
   autoExpand: true
   clientID: 'Iv1.90952b0d27fd3ed1'
-  clientSecret: '57026f0499a24028184e320b15c97f5d157ba483'
-  repo: 'xianyu-blog' ## dev-blo-comments
-  owner: 's-xianyu' ## owner name
+  clientSecret: '262545dfd63a80385ec602f384b455b50848f7aa'
+  repo: xianyu-blog ## dev-blo-comments
+  owner: s-xianyu ## owner name
   admin: ['s-xianyu'] ## ['admin_name']
   id: uid
   language: cn
