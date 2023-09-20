@@ -4,6 +4,7 @@ date: 2020-07-01 16:26:23
 tags:
     - 前端
     - H5
+cover: https://z1.ax1x.com/2023/09/20/pPISJNd.jpg
 ---
 
 经常在ios端遇见键盘弹起后，带起input框上拉，当键盘关闭后，input没有回到原来的位置，这时，ios底部会有键盘收起后的留白。

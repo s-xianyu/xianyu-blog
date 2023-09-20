@@ -3,6 +3,7 @@ title: WebStorm配置本地测试服务器
 date: 2020-05-29 16:23:58
 tags:
     - 工具
+cover: https://z1.ax1x.com/2023/09/20/pPIpl2q.jpg
 ---
 
 1.﻿﻿ 点击Settings 进入设置<br />
