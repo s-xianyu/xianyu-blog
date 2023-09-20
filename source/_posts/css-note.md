@@ -4,6 +4,7 @@ date: 2018-06-05 11:31:16
 tags:
     - 前端
     - css
+cover: https://z1.ax1x.com/2023/09/20/pP54aZT.jpg
 ---
 
 1. 1px像素问题
