@@ -1,10 +1,10 @@
 ---
 title: JS设计模式之单列模式
-date: 2023-09-20 14:50:32
+date: 2023-09-14 14:50:32
 tags:
     - javascript
     - vue 3.0 
-cover: https://z1.ax1x.com/2023/09/20/pP5htED.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5htED.jpg
 ---
 ### **什么是单例模式**
 单例模式：是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式

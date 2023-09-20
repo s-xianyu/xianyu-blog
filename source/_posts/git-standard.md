@@ -3,7 +3,7 @@ title: git提交规范
 date: 2021-05-1 15:58:43
 tags:
     - git
-cover: https://z1.ax1x.com/2023/09/20/pP5hsDf.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5hsDf.jpg
 - feature: true
 ---
 

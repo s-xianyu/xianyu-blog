@@ -4,6 +4,7 @@ date: 2020-07-03 16:00:17
 tags:
     - 前端
     - nodeJs
+cover:  https://z1.ax1x.com/2023/09/20/pP5XNan.jpg
 ---
 
 ### 1.首先下载nvm安装包

@@ -4,7 +4,7 @@ date: 2021-10-11 09:40:24
 tags: 
     - 前端
     - nodeJs
-cover: https://z1.ax1x.com/2023/09/20/pP5hf8s.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5hf8s.jpg
 ---
 
 ##NVM升级

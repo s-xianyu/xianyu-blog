@@ -3,6 +3,7 @@ title: 正则常用表达式
 date: 2019-12-20 19:45:40
 tags:
     - 前端
+cover: https://z1.ax1x.com/2023/09/20/pP5XU5q.jpg
 ---
 
 ```javascript

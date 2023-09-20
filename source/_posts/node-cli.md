@@ -4,7 +4,7 @@ date: 2022-02-26 11:36:59
 tags:
     - node
     - cli
-cover: https://z1.ax1x.com/2023/09/20/pP5hw8A.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5hw8A.jpg
 feature: true
 ---
 

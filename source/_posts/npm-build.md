@@ -5,7 +5,7 @@ tags:
     - javascript
     - npm
     - node
-cover: https://z1.ax1x.com/2023/09/20/pP5hBvt.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5hBvt.jpg
 feature: true
 ---
 

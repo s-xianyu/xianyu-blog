@@ -4,6 +4,7 @@ date: 2018-11-19 15:46:53
 tags:
     - 前端
     - vue
+cover:  https://z1.ax1x.com/2023/09/20/pP5XwGV.jpg
 ---
 # vue 对IE的支持
 

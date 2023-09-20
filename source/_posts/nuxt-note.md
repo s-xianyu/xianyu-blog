@@ -4,6 +4,7 @@ date: 2018-10-19 10:59:38
 tags:
     - 前端
     - nuxtJs
+cover:  https://z1.ax1x.com/2023/09/20/pP5XtVs.jpg
 ---
 
 # nuxt.js

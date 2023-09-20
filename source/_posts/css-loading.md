@@ -3,7 +3,7 @@ title: 一个好看的loading
 date: 2020-01-04 16:30:42
 tags:
     - css
-cover: https://z1.ax1x.com/2023/09/20/pP5hXG9.md.jpg
+cover: https://z1.ax1x.com/2023/09/20/pP5vDHJ.jpg
 ---
 
 

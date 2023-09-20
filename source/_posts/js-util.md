@@ -3,6 +3,7 @@ title: JS工具函数-转载
 date: 2019-07-02 15:50:34
 tags:
     - 前端
+cover:  https://z1.ax1x.com/2023/09/20/pP5XGrQ.jpg
 ---
 # JS工具函数-转载
 
