@@ -7,9 +7,8 @@ cover: https://z1.ax1x.com/2023/09/20/pP5vDHJ.jpg
 ---
 
 
-![img.png](https://raw.githubusercontent.com/s-xianyu/blog-static/master/images/loading.gif)
+![loading.gif](https://s2.loli.net/2023/09/21/9nTpSxdqiQsUhCG.gif)
 
-<!--more-->
 直接上代码
 ```css
 .loading{

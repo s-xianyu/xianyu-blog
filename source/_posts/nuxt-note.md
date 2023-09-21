@@ -11,7 +11,8 @@ cover:  https://z1.ax1x.com/2023/09/20/pP5XtVs.jpg
 
 <a name="7whsas"></a>
 ### 一、sass配置
-1.安装依赖文件：<br />npm install css-loader style-loader node-sass sass-loader --save
+1.安装依赖文件：
+npm install css-loader style-loader node-sass sass-loader --save
 
 在你需要使用的页面添加@import "scss地址"； 见下
 ```css
@@ -29,7 +30,8 @@ cover:  https://z1.ax1x.com/2023/09/20/pP5XtVs.jpg
 
 <!--more-->
 
-如果是全局使用的话，需要在nuxt-config.jsli配置全局css,如下：<br />less和其他依赖一样
+如果是全局使用的话，需要在nuxt-config.jsli配置全局css,如下：
+less和其他依赖一样
 ```javascript
 build: {
     styleResources: {
@@ -85,7 +87,9 @@ proxy: [ //设置跨域代理为 /api 代替
 
 <a name="lqu8wt"></a>
 ### 三、全局js 配置
-插件配置<br />1.首先下载插件 npm install element-ui --save<br />2.在plugins 建立element-ui文件夹用来引入模块，如下：
+插件配置
+1.首先下载插件 npm install element-ui --save
+2.在plugins 建立element-ui文件夹用来引入模块，如下：
 ```javascript
 import Vue from 'vue'
 import Element from 'element-ui/lib/element-ui.common' //引入element-ui库
