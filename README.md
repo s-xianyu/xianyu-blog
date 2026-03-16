@@ -1,4 +1,4 @@
-## 咸鱼呀-博客系统
+## 川枼-博客系统
 博客地址：[blog.xianyuya.ltd](http://blog.xianyuya.ltd/)
 ----
 本项目基于 [hexo](https://hexo.io/zh-cn/index.html) 搭建，安装前请确认是否已安装（hexo-cli）

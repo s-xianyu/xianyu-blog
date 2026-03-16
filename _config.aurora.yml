@@ -10,8 +10,8 @@
 #！ @docs https://aurora.tridiamond.tech/guide/configuration.html
 #! ---------------------------------------------------------------
 site:
-  subtitle: 咸鱼呀-博客
-  author: 咸鱼呀
+  subtitle: 川枼-博客
+  author: 川枼
   nick: s-xianyu
   description: '前端小白'
   link: '/'
@@ -50,7 +50,7 @@ authors:
     customs:
       github:
         icon: /assets/user/avatar.jpg
-        link: https://xy.kuvinet.cn/
+        link: https://diary.xianyu.bond/
 
 #! ---------------------------------------------------------------
 #! Menu Configs
@@ -63,7 +63,7 @@ menu:
   Friends: true
   Vitepress:
     name: '知识库'
-    path: 'https://note.xianyuya.ltd/'
+    path: 'https://note.xianyu.bond/'
     i18n:
       en: 'note'
       zh-CN: '知识库'
@@ -72,7 +72,7 @@ menu:
     path: 'https://github.com/s-xianyu'
   Pet:
     name: '宠物项目'
-    path: 'https://xy.kuvinet.cn/'
+    path: 'https://diary.xianyu.bond/'
     i18n:
       en: 'Pet'
       zh-CN: '宠物项目'
@@ -136,7 +136,7 @@ gitalk:
   clientSecret: '262545dfd63a80385ec602f384b455b50848f7aa'
   repo: 'xianyu-blog' ## dev-blo-comments
   owner: 's-xianyu' ## owner name
-  admin: ['咸鱼呀'] ## ['admin_name']
+  admin: ['川枼'] ## ['admin_name']
   id: uid
   language: cn
   distractionFreeMode: true
