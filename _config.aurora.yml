@@ -136,7 +136,7 @@ gitalk:
   clientSecret: '2ef2c5478261830dbbadf38d5f6bbdcc815fa746'
   repo: 'xianyu-blog' ## dev-blo-comments
   owner: 's-xianyu' ## owner name
-  admin: ['川枼'] ## ['admin_name']
+  admin: ['s-xianyu'] ## ['admin_name']
   id: uid
   language: cn
   distractionFreeMode: true
